@@ -3,7 +3,7 @@ import { fadeInUp, scrollReveal} from "../lib/Motion"
 
 function Contact() {
     return (
-        <motion.div  id="contact" className=" bg-black flex flex-col justify-center items-center px-5 lg:px-20 py-20 text-center">
+        <motion.div  id="contact" className="min-h-screen bg-black flex flex-col justify-center items-center px-5 lg:px-20 py-20 text-center">
 
             <motion.div {...scrollReveal} className="flex items-center gap-2 px-4 py-2 bg-blue-950/20 ring-1 ring-blue-900 rounded-full">
                 <span className="w-2 h-2 bg-blue-300 rounded-full animate-pulse"></span>
