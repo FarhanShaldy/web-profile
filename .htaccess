@@ -5,7 +5,7 @@ Options +FollowSymLinks -Indexes
   RewriteEngine On
   
   # Set file indeks utama langsung ke dist/index.html
-  DirectoryIndex ./dist/index.html
+  DirectoryIndex dist/index.html
 
   # Jika yang diakses BUKAN folder dist, arahkan secara internal ke dalam dist/
   RewriteCond %{REQUEST_URI} !^/dist/
