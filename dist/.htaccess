@@ -8,5 +8,5 @@
     RewriteRule ^ - [L]
   
     # Arahkan semua request SPA (Vite/React/Vue) ke index.html
-    RewriteRule . /index.html [L]
+    RewriteRule . /index.html [L] 
 </IfModule>
