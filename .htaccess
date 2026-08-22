@@ -1,13 +1,18 @@
-# Izinkan akses direktori agar tidak 403
 Options +FollowSymLinks -Indexes
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  
-  # Set file indeks utama langsung ke dist/index.html
+  RewriteBase /
+
+  # Set file indeks default ke dist/index.html
   DirectoryIndex dist/index.html
 
-  # Jika yang diakses BUKAN folder dist, arahkan secara internal ke dalam dist/
+  # Jika akses root domain (http://localhost/), tampilkan isi dist/index.html
+  RewriteRule ^$ dist/index.html [L]
+
+  # Mengarahkan file/asset yang tidak ada di root agar diambil dari folder dist/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !^/dist/
   RewriteRule ^(.*)$ dist/$1 [L]
 </IfModule>
