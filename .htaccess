@@ -1,17 +1,14 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
+RewriteEngine On
 
-  # Set file utama yang dipanggil saat domain diakses
-  DirectoryIndex dist/index.html
+RewriteBase /
 
-  # Arahkan semua request agar membaca file/folder di dalam dist/
-  RewriteCond %{REQUEST_URI} !^/dist/
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule ^(.*)$ dist/$1 [L]
+# Jangan rewrite file/folder yang sudah ada di public_html
+RewriteCond %{REQUEST_URI} !^/dist/
 
-  # Fallback milikmu yang sudah disesuaikan ke dist/index.html
-  RewriteCond %{REQUEST_URI} !^/dist/
-  RewriteRule . /dist/index.html [L]
-</IfModule>
+# File dan folder diambil dari dist
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f [OR]
+RewriteCond %{DOCUMENT_ROOT}/dist/$1 -d
+RewriteRule ^(.*)$ dist/$1 [L]
+
+# Semua route React diarahkan ke index.html
+RewriteRule ^(.*)$ dist/index.html [L]
