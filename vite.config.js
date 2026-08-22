@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react' // atau vue, sesuaikan dengan framework Anda
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react()],
-  base: './', // Menggunakan relative path agar asset dimuat dari folder dist
+  plugins: [react(), tailwindcss()],
 })
