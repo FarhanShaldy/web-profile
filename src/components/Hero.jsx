@@ -1,4 +1,4 @@
-import useBreakpoint from "../Hooks/useBreakpoint"
+import useBreakpoint from "../hooks/useBreakpoint"
 import ProfileCard from "./ProfileCard"
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, staggerItem } from "../lib/Motion";
@@ -8,6 +8,8 @@ function Hero() {
 
     return (
         <div id="hero" className="min-h-screen bg-black grid grid-cols-2 lg:grid-cols-4 content-start pt-[20vh] justify-center items-center px-5 lg:px-20">
+
+            {/*Kolom kiri: Kalimat Pembuka, Tombol Proyek dan Kontak, Pengalaman*/}
             <div className="flex h-10 border-2 col-span-2 items-center">
                 <span className="h-px w-5 bg-blue-300 me-1"></span>
                 <p className="text-gray-500 text-sm font-bold tracking-wider">FULL STACK DEVELOPER
@@ -52,6 +54,8 @@ function Hero() {
                 </div>
                 
             </div>
+
+            {/*Kolom kanan: Hero Card*/}
             <div className="hidden lg:flex h-full w-full lg:col-start-4 lg:row-start-2 lg:row-span-3 justify-end items-start">
                 <ProfileCard key={isLarge}/>
             </div>

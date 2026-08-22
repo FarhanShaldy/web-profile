@@ -7,3 +7,9 @@ html {
 div[id]{
   scroll-margin-top: 1px; /* Adjust this value based on your navbar height */
 }
+
+@media (pointer: fine){
+  * {
+    cursor: none;
+  }
+}
