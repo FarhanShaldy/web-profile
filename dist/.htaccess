@@ -1,11 +1,12 @@
 <IfModule mod_rewrite.c>
-    Options -MultiViews
     RewriteEngine On
     RewriteBase /
-
+  
+    # Jangan blokir direktori atau file yang benar-benar ada
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
-
-    RewriteRule ^ index.html [L]
+  
+    # Arahkan semua request SPA (Vite/React/Vue) ke index.html
+    RewriteRule . /index.html [L]
 </IfModule>
