@@ -1,5 +1,6 @@
 import {motion} from "motion/react"
 import { fadeInUp, scrollReveal} from "../lib/Motion"
+import { profile } from "../data/Profile"
 
 function Contact() {
     return (
@@ -27,7 +28,7 @@ function Contact() {
                     href="mailto:m.farhan.fajriansyah@gmail.com"
                     className="flex items-center gap-2 px-5 py-3 bg-gray-950 ring-1 ring-gray-800 hover:ring-blue-400 text-gray-400 hover:text-white text-sm font-mono rounded-xs transition"
                 >
-                    ✉ m.farhan.fajriansyah@gmail.com
+                    ✉ {profile.email}
                 </motion.a>
                 <motion.a
                     href="https://github.com/FarhanShaldy"
@@ -35,7 +36,7 @@ function Contact() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-5 py-3 bg-gray-950 ring-1 ring-gray-800 hover:ring-blue-400 text-gray-400 hover:text-white text-sm font-mono rounded-xs transition"
                 >
-                    ⌥ github.com/FarhanShaldy
+                    ⌥ {profile.github.display}
                 </motion.a>
             </motion.div>
 

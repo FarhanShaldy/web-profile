@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
+import { colors } from "../lib/Color"
 
 function CustomCursor() {
 
@@ -52,7 +53,7 @@ function CustomCursor() {
 
             {/*Outline*/}
             <motion.div className="fixed w-8 h-8 border-2 border-gray-800 rounded-full pointer-events-none z-[9999]"
-            style={{ x: outlineX, y: outlineY, translateX: "-50%", translateY: "-50%" }} animate={{ borderColor: isHovering? "oklch(48.8% 0.243 264.376)" : "oklch(27.8% 0.033 256.848)"}}
+            style={{ x: outlineX, y: outlineY, translateX: "-50%", translateY: "-50%" }} animate={{ borderColor: isHovering? colors.blue600 : colors.gray800}}
             />
         </>
     )

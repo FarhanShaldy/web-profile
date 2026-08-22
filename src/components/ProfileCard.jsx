@@ -1,11 +1,12 @@
 import {motion} from "motion/react"
 import Techhero from "./Techhero"
+import { profile } from "../data/Profile"
 
 function ProfileCard() {
     const infoRows = [
-        { label: 'Status', value: 'Tersedia', dot: true },
-        { label: 'Lokasi', value: 'Yogyakarta' },
-        { label: 'Github', value: '@FarhanShaldy' },
+        { label: 'Status', value: profile.status.label, dot: true },
+        { label: 'Lokasi', value: profile.domicile.split(',')[1]?.trim() || profile.domicile },
+        { label: 'Github', value: profile.github.handle },
     ]
 
     return (
@@ -19,14 +20,14 @@ function ProfileCard() {
             {/* Avatar */}
             <div className="flex flex-col col-span-2 mt-5 pb-4">
                 <div className="flex size-14 rounded-full bg-gray-900 brightness-110 justify-center items-center ring-1 ring-blue-400">
-                    <span className="text-blue-300 text-lg font-semibold font-serif">MF</span>
+                    <span className="text-blue-300 text-lg font-semibold font-serif"> {profile.initials} </span>
                 </div>
             </div>
 
             {/* Nama + Tagline */}
             <div className="col-span-2 py-4 ">
-                <p className="text-xs font-semibold text-white font-serif">Muhammad Farhan Fajriansyah S.Kom</p>
-                <p className="text-xs text-blue-300 font-serif">// FULL-STACK DEVELOPER</p>
+                <p className="text-xs font-semibold text-white font-serif"> {profile.nameWithTitle} </p>
+                <p className="text-xs text-blue-300 font-serif">// {profile.role}</p>
             </div>
 
             {/* Label kolom */}

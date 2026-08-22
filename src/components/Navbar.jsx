@@ -1,4 +1,5 @@
 import profileImg from "../assets/profile.jpg";
+import { profile } from "../data/Profile";
 
 function Navbar() {
 
@@ -20,7 +21,7 @@ function Navbar() {
                     alt="Profile"
                     className="shrink-0 w-6 h-6 rounded-full object-cover object-[20%_20%] ring-2 ring-gray-600"
                 />
-                <span className="text-xs text-white font-semibold items-center tracking-widest">Muhammad Farhan Fajriansyah</span>
+                <span className="text-xs text-white font-semibold items-center tracking-widest"> {profile.name} </span>
             </div>
             <div className="hidden lg:flex size-full justify-center items-center gap-5">
                 {menuItems.map((item) => (
@@ -35,7 +36,7 @@ function Navbar() {
             </div>
             <div className="flex size-full justify-end items-center col-span-2 lg:col-span-1 gap-3 px-5 lg:px-20 transition-[width, height] duration-300 ease-in-out">
                 <span className="w-2 h-2 bg-blue-300 rounded-full animate-pulse"></span>
-                <span className="text-xs text-blue-300 font-semibold tracking-widest">Open for Projects</span>
+                <span className="text-xs text-blue-300 font-semibold tracking-widest">{profile.status.availability}</span>
             </div>
         </nav>
     </>

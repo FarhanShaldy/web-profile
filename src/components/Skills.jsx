@@ -1,26 +1,8 @@
 import {motion} from "motion/react"
 import { staggerContainer, staggerItem } from "../lib/Motion"
+import { skillGroups } from "../data/Skills"
 
 function Skills() {
-    const skillGroups = [
-        {
-            category: 'FRONTEND',
-            items: ['React.js', 'Next.js', 'HTML', 'Dart (Flutter)', 'Tailwind CSS'],
-        },
-        {
-            category: 'BACKEND',
-            items: ['Laravel', 'CodeIgniter', 'PHP', 'TypeScript', 'C++'],
-        },
-        {
-            category: 'DATABASE',
-            items: ['MySQL', 'PostgreSQL', 'Supabase'],
-        },
-        {
-            category: 'TOOLS & OTHERS',
-            items: ['Git', 'Google Firebase', 'Postman'],
-        },
-    ]
-
     return (
         <div id="skills" className="bg-black grid grid-cols-1 content-center px-5 lg:px-20 py-20">
 

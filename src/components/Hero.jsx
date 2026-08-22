@@ -2,6 +2,7 @@ import useBreakpoint from "../hooks/useBreakpoint"
 import ProfileCard from "./ProfileCard"
 import { motion } from "motion/react";
 import { fadeInUp, staggerContainer, staggerItem } from "../lib/Motion";
+import { profile, stats } from "../data/Profile"
 
 function Hero() {
     const isLarge = useBreakpoint()
@@ -12,9 +13,9 @@ function Hero() {
             {/*Kolom kiri: Kalimat Pembuka, Tombol Proyek dan Kontak, Pengalaman*/}
             <div className="flex h-10 border-2 col-span-2 items-center">
                 <span className="h-px w-5 bg-blue-300 me-1"></span>
-                <p className="text-gray-500 text-sm font-bold tracking-wider">FULL STACK DEVELOPER
+                <p className="text-gray-500 text-sm font-bold tracking-wider">{profile.role}
                     <span className="inline-block w-2 h-2 bg-blue-300 rounded-full mx-2"></span>
-                    YOGYAKARTA, INDONESIA</p>
+                    {profile.domicile.split(',')[1]?.trim() || profile.domicile}</p>
             </div>
             <div className="flex pb-5 sm:w-full md:max-w-[50vw] min-h-10 lg:col-start-1 lg:row-start-2 col-span-2 lg:col-span-3 justify-center transition-[width] duration-300">
                 <p className="text-gray-500 font-semibold text-base/7"> Full-stack developer <span className="text-white font-semibold">fresh graduate </span> dengan memiliki
@@ -33,24 +34,16 @@ function Hero() {
             </motion.div>
             <div className="flex min-h-10 my-5 py-10 sm:w-full lg:col-start-1 lg:row-start-4 col-span-2 lg:col-span-3 border-t border-gray-900 md:max-w-[50vw]">
                 <div className="grid size-full grid-cols-3 grid-rows-2 justify-start gap-x-5">
-                    <div>
-                        <p className="text-4xl text-blue-300 tracking-tighter font-semibold font-serif">3</p>
-                    </div>
-                    <div>
-                        <p className="text-4xl text-blue-300 tracking-tighter font-semibold font-serif">2</p>
-                    </div>
-                     <div>
-                        <p className="text-4xl text-blue-300 tracking-tighter font-semibold font-serif">250+</p>
-                    </div>
-                    <div>
-                        <p className="text-md text-gray-500 tracking-tighter font-semibold font-mono">Tahun Pengalaman</p>
-                    </div>
-                    <div>
-                        <p className="text-md text-gray-500 tracking-tighter font-semibold font-mono">Proyek Selesai</p>
-                    </div>
-                    <div>
-                        <p className="text-md text-gray-500 tracking-tighter font-semibold font-mono">Pengguna Aktif</p>
-                    </div>
+                    {stats.map((stat) => (
+                        <div key={stat.label}>
+                            <p className="text-4xl text-blue-300 tracking-tighter font-semibold font-serif">{stat.value}</p>
+                        </div>
+                    ))}
+                    {stats.map((stat) => (
+                        <div key={stat.label + '-label'}>
+                            <p className="text-md text-gray-500 tracking-tighter font-semibold font-mono">{stat.label}</p>
+                        </div>
+                    ))}
                 </div>
                 
             </div>

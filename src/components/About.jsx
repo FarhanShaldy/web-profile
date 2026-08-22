@@ -1,16 +1,17 @@
 import {motion} from "motion/react"
 import { scrollReveal } from "../lib/Motion"
+import { profile } from "../data/Profile"
 
 function About() {
 
     const infoList = [
-        { label: 'nama', value: 'Muhammad Farhan Fajriansyah' },
-        { label: 'domisili', value: 'Sleman, D.I. Yogyakarta' },
-        { label: 'email', value: 'm.farhan.fajriansyah.com' },
-        { label: 'github', value: 'github.com/FarhanShaldy' },
-        { label: 'entitas', value: 'Fresh Graduate / Full-time' },
-        { label: 'sektor', value: 'Web · Mobile · Sistem Informasi' },
-        { label: 'pengalaman', value: '3 Tahun · 2 Proyek Utama' },
+        { label: 'nama', value: profile.name },
+        { label: 'domisili', value: profile.location },
+        { label: 'email', value: profile.email },
+        { label: 'github', value: profile.github.display },
+        { label: 'entitas', value: profile.entitas },
+        { label: 'sektor', value: profile.sektor },
+        { label: 'pengalaman', value: profile.pengalaman },
     ]
 
     return (
