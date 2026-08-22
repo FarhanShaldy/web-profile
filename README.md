@@ -46,6 +46,12 @@ web-profile/
 │   │   └── Footer.jsx
 │   ├── Hooks/
 │   │   └── useBreakpoint.js
+│   ├── data/
+│   │   ├── profile.js
+│   │   ├── projects.js
+│   │   ├── process.js
+│   │   ├── guarantee.js
+│   │   └── skills.js
 │   ├── lib/
 │   │   └── Motion.js
 │   ├── App.jsx
@@ -107,6 +113,36 @@ web-profile/
    ```bash
    npm run build
    ```
+
+---
+
+## 🔑 Mapping & Key
+
+Setiap kali sebuah array data dirender jadi list elemen memakai `.map()`, React mewajibkan tiap elemen hasil render diberi prop `key` yang unik di antara saudara-saudaranya. Ini dipakai React untuk mengenali elemen mana yang berubah, ditambah, atau dihapus saat data berubah, sehingga re-render lebih efisien dan tidak salah mencocokkan elemen.
+
+Berikut daftar seluruh pemakaian `.map()` di project ini beserta key yang digunakan:
+
+| Komponen | Sumber Data | Di-mapping menjadi | Key yang dipakai |
+|---|---|---|---|
+| `Navbar.jsx` | `menuItems` (array lokal) | Link menu navigasi | `item.to` |
+| `About.jsx` | `infoList` (array lokal) | Baris data diri (nama, domisili, dst) | `item.label` |
+| `Skills.jsx` | `data/skills.js` → `skillGroups` | Kotak kategori skill (Frontend, Backend, dst) | `group.category` |
+| `Skills.jsx` | `group.items` (nested, per kategori) | Baris nama skill | `item` (string skill itu sendiri) |
+| `Projects.jsx` | `data/projects.js` → `projects` | Baris/card tiap project | `project.number` |
+| `Projects.jsx` | `project.tags` (nested, per project) | Badge tag teknologi | `tag` (string tag itu sendiri) |
+| `Process.jsx` | `data/process.js` → `processSteps` | Kotak tahapan kerja (01–04) | `step.number` |
+| `Process.jsx` | `data/process.js` → `processChecklist` | Baris checklist deliverables | `item` (string checklist itu sendiri) |
+| `Guarantee.jsx` | `data/guarantee.js` → `guaranteePoints` | Kotak poin komitmen kerja | `point.category` |
+| `ProfileCard.jsx` | `infoRows` (array lokal) | Baris label (Status/Lokasi/Github) | `row.label` |
+| `ProfileCard.jsx` | `infoRows` (array lokal, kolom kedua) | Baris value (Tersedia/Yogyakarta/dst) | `row.label` |
+| `Techhero.jsx` | `data/profile.js` → `mainTechStack` | Badge tech stack di ProfileCard | `tech` (string tech itu sendiri) |
+| `Hero.jsx` | `data/profile.js` → `stats` | Angka statistik (3, 2, 250+) | `stat.label` |
+
+### Aturan pemilihan key
+
+- **Prioritas utama:** id atau field unik yang benar-benar tidak berubah dan tidak duplikat, misalnya `item.to`, `project.number`, `group.category`.
+- **Kalau data hanya berupa array of string** (contoh: `project.tags`, `skillGroups[].items`), string itu sendiri dipakai sebagai key selama dipastikan tidak ada duplikat dalam array yang sama.
+- **Tidak menggunakan index array** (`key={index}`) sebagai key di project ini, karena index bisa berubah urutannya kalau data ditambah/dihapus/diurutkan ulang, yang berisiko membuat React salah mencocokkan elemen saat re-render.
 
 ---
 
