@@ -1,8 +1,17 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
+
+  # Set file utama yang dipanggil saat domain diakses
+  DirectoryIndex dist/index.html
+
+  # Arahkan semua request agar membaca file/folder di dalam dist/
+  RewriteCond %{REQUEST_URI} !^/dist/
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule ^(.*)$ dist/$1 [L]
+
+  # Fallback milikmu yang sudah disesuaikan ke dist/index.html
+  RewriteCond %{REQUEST_URI} !^/dist/
+  RewriteRule . /dist/index.html [L]
 </IfModule>
