@@ -3,7 +3,7 @@
   RewriteBase /
 
   # 1. Buka index.html yang ada di dalam folder dist secara otomatis
-  DirectoryIndex dist/index.html
+  DirectoryIndex ./dist/index.html
 
   # 2. Arahkan semua request asset/file ke dalam folder dist/ secara transparan
   RewriteCond %{REQUEST_URI} !^/dist/
