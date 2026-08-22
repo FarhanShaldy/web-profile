@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Buka index.html yang ada di dalam folder dist secara otomatis
+  DirectoryIndex dist/index.html
+
+  # 2. Arahkan semua request asset/file ke dalam folder dist/ secara transparan
+  RewriteCond %{REQUEST_URI} !^/dist/
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ dist/$1 [L]
+
+  # 3. Fallback jika halaman di-refresh
+  RewriteCond %{REQUEST_URI} !^/dist/
+  RewriteRule . /dist/index.html [L]
+</IfModule>
