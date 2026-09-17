@@ -3,8 +3,8 @@ export const profile = {
   nameWithTitle: 'Muhammad Farhan Fajriansyah S.Kom',
   initials: 'MF',
   role: 'FULL STACK DEVELOPER',
-  location: 'Yogyakarta, Indonesia',
-  domicile: 'Sleman, D.I. Yogyakarta, Indonesia',
+  location: 'Malang, Indonesia',
+  domicile: 'Malang, Jawa Timur Indonesia',
   email: 'm.farhan.fajriansyah@gmail.com',
   github: {
     username: 'FarhanShaldy',
