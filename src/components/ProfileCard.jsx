@@ -5,7 +5,7 @@ import { profile } from "../data/Profile"
 function ProfileCard() {
     const infoRows = [
         { label: 'Status', value: profile.status.label, dot: true },
-        { label: 'Lokasi', value: profile.domicile.split(',')[1]?.trim() || profile.domicile },
+        { label: 'Lokasi', value: profile.location },
         { label: 'Github', value: profile.github.handle },
     ]
 

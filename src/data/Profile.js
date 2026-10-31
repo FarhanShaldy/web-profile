@@ -1,16 +1,16 @@
 export const profile = {
   name: 'Muhammad Farhan Fajriansyah',
-  nameWithTitle: 'Muhammad Farhan Fajriansyah S.Kom',
+  nameWithTitle: 'Muhammad Farhan Fajriansyah',
   initials: 'MF',
   role: 'FULL STACK DEVELOPER',
   location: 'Malang, Indonesia',
   domicile: 'Malang, Jawa Timur Indonesia',
   email: 'm.farhan.fajriansyah@gmail.com',
   github: {
-    username: 'FarhanShaldy',
-    handle: '@FarhanShaldy',
-    url: 'https://github.com/FarhanShaldy',
-    display: 'github.com/FarhanShaldy',
+    username: 'HanTweener',
+    handle: '@HanTweener',
+    url: 'https://github.com/HanTweener',
+    display: 'github.com/HanTweener',
   },
   status: {
     label: 'Tersedia',
@@ -18,14 +18,14 @@ export const profile = {
   },
   entitas: 'Fresh Graduate / Full-time',
   sektor: 'Web · Mobile · Sistem Informasi',
-  pengalaman: '3 Tahun · 2 Proyek Utama',
+  pengalaman: '3 Tahun · 3 Proyek Utama',
 }
 
 
 export const stats = [
   { value: '3', label: 'Tahun Pengalaman' },
-  { value: '2', label: 'Proyek Selesai' },
-  { value: '250+', label: 'Pengguna Aktif' },
+  { value: '3', label: 'Proyek Selesai' },
+  { value: '', label: '' },
 ]
 
 // Tech stack utama (ditampilkan di ProfileCard)

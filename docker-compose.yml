@@ -1,0 +1,29 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-profile-app
+    restart: unless-stopped
+    ports:
+      # Optional: access locally at http://localhost:3000
+      - "3000:80"
+    networks:
+      - web-net
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: web-profile-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    networks:
+      - web-net
+    depends_on:
+      - web
+
+networks:
+  web-net:
+    driver: bridge
+
